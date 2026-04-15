@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemanth R — Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Cinzel for display titles, Raleway for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       LOADING SCREEN
+  ══════════════════════════════════════ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <svg class="loader-seal" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle class="seal-ring seal-ring--outer" cx="100" cy="100" r="90" />
+        <circle class="seal-ring seal-ring--inner" cx="100" cy="100" r="72" />
+        <polygon class="seal-star" points="100,20 120,80 185,80 133,118 153,180 100,142 47,180 67,118 15,80 80,80" />
+        <circle class="seal-core" cx="100" cy="100" r="18" />
+      </svg>
+      <p class="loader-text">Entering the Realm…</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       CUSTOM CURSOR
+  ══════════════════════════════════════ -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- ══════════════════════════════════════
+       CANVAS PARTICLE BACKGROUND
+  ══════════════════════════════════════ -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ══════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-logo">HR</div>
+    <ul class="nav-links">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#experience" class="nav-link">Journey</a></li>
+      <li><a href="#achievements" class="nav-link">Feats</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <!-- Realm toggle -->
+    <button id="realm-toggle" aria-label="Toggle Realm">
+      <span class="toggle-icon">☽</span>
+    </button>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div id="mobile-nav">
+    <ul>
+      <li><a href="#about"       class="mobile-link">About</a></li>
+      <li><a href="#projects"    class="mobile-link">Projects</a></li>
+      <li><a href="#experience"  class="mobile-link">Journey</a></li>
+      <li><a href="#achievements"class="mobile-link">Feats</a></li>
+      <li><a href="#contact"     class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-pre reveal-char">⬡ Welcome, Traveller ⬡</p>
+      <h1 class="hero-name">
+        <span class="name-line" id="name-h">Hemanth</span>
+        <span class="name-line" id="name-r">R</span>
+      </h1>
+      <p class="hero-tagline">
+        <span class="typewriter" id="typewriter"></span>
+        <span class="cursor-blink">|</span>
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">
+          <span class="btn-glow"></span>
+          Enter Realm
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════ -->
+  <section id="about" class="section">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">
+        <span class="title-accent">01.</span> The Wanderer
+      </h2>
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <p>
+            A software developer forged in the fires of countless compile errors and midnight debugging sessions.
+            I craft clean, efficient code and bring ideas to life — from intelligent ML systems to sleek web interfaces.
+          </p>
+          <p>
+            When I'm not writing code, I'm probably exploring the lore of a new game, studying algorithms, or trying
+            to teach a neural network something useful.
+          </p>
+          <div class="about-stats">
+            <div class="stat-card fade-in">
+              <span class="stat-num">12+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-card fade-in">
+              <span class="stat-num">3+</span>
+              <span class="stat-label">Years</span>
+            </div>
+            <div class="stat-card fade-in">
+              <span class="stat-num">∞</span>
+              <span class="stat-label">Curiosity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill Tree -->
+        <div class="skill-tree fade-in">
+          <h3 class="skill-tree-title">Skill Constellation</h3>
+          <div class="skill-grid">
+            <div class="skill-node" data-level="5">
+              <span class="skill-icon">⚡</span>
+              <span class="skill-name">Python</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill:92%"></div></div>
+            </div>
+            <div class="skill-node" data-level="4">
+              <span class="skill-icon">⚙</span>
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill:85%"></div></div>
+            </div>
+            <div class="skill-node" data-level="4">
+              <span class="skill-icon">🧠</span>
+              <span class="skill-name">Machine Learning</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill:80%"></div></div>
+            </div>
+            <div class="skill-node" data-level="4">
+              <span class="skill-icon">⚛</span>
+              <span class="skill-name">React</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill:78%"></div></div>
+            </div>
+            <div class="skill-node" data-level="3">
+              <span class="skill-icon">🐍</span>
+              <span class="skill-name">Django / Flask</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill:72%"></div></div>
+            </div>
+            <div class="skill-node" data-level="3">
+              <span class="skill-icon">🗄</span>
+              <span class="skill-name">SQL / NoSQL</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill:70%"></div></div>
+            </div>
+            <div class="skill-node" data-level="3">
+              <span class="skill-icon">🐳</span>
+              <span class="skill-name">Docker / Git</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill:75%"></div></div>
+            </div>
+            <div class="skill-node" data-level="2">
+              <span class="skill-icon">☁</span>
+              <span class="skill-name">AWS / Cloud</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill:60%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PROJECTS
+  ══════════════════════════════════════ -->
+  <section id="projects" class="section">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">
+        <span class="title-accent">02.</span> Relics Forged
+      </h2>
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card fade-in">
+          <div class="card-glow-border"></div>
+          <div class="card-header">
+            <span class="card-index">001</span>
+            <div class="card-links">
+              <a href="#" class="card-link" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.087.636-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              </a>
+              <a href="#" class="card-link" title="Live Demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">AgriAssist</h3>
+          <p class="card-desc">Mobile application for Ai assisted Farming Advisory.</p>
+          <div class="card-tags">
+            <span class="tag">Kotlin XML + Android</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Room DB</span>
+            <!-- <span class="tag">Redis</span> -->
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card fade-in">
+          <div class="card-glow-border"></div>
+          <div class="card-header">
+            <span class="card-index">002</span>
+            <div class="card-links">
+              <a href="#" class="card-link" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.087.636-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              </a>
+              <a href="#" class="card-link" title="Live Demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">LoreKeeper</h3>
+          <p class="card-desc">An NLP-powered knowledge base assistant that ingests documents and answers questions with source citations using RAG architecture.</p>
+          <div class="card-tags">
+            <span class="tag">Milvus DB</span>
+            <span class="tag">Python Flask</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Github Actions</span>
+            <span class="tag">React</span>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card fade-in">
+          <div class="card-glow-border"></div>
+          <div class="card-header">
+            <span class="card-index">003</span>
+            <div class="card-links">
+              <a href="#" class="card-link" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.087.636-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              </a>
+              <a href="#" class="card-link" title="Live Demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">Savepoint</h3>
+          <p class="card-desc"> Version controlling save-file binaries of Local Games with file system managing for convenient traversal across Savepoints .</p>
+          <div class="card-tags">
+            <span class="tag">Git</span>
+            <!-- <span class="tag"></span> -->
+            <span class="tag">MongoDB</span>
+            <!-- <span class="tag">Stripe</span> -->
+          </div>
+        </article>
+
+        <!-- Project 4
+        <article class="project-card fade-in">
+          <div class="card-glow-border"></div>
+          <div class="card-header">
+            <span class="card-index">004</span>
+            <div class="card-links">
+              <a href="#" class="card-link" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.087.636-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              </a>
+              <a href="#" class="card-link" title="Live Demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">EchoVision</h3>
+          <p class="card-desc">Computer vision pipeline for real-time object detection and scene understanding, deployed on edge devices with optimized ONNX models.</p>
+          <div class="card-tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">ONNX</span>
+            <span class="tag">C++</span>
+          </div>
+        </article> -->
+
+        <!-- Project 5
+        <article class="project-card fade-in">
+          <div class="card-glow-border"></div>
+          <div class="card-header">
+            <span class="card-index">005</span>
+            <div class="card-links">
+              <a href="#" class="card-link" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.087.636-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              </a>
+              <a href="#" class="card-link" title="Live Demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">ChronoSync</h3>
+          <p class="card-desc">Distributed task scheduler with a visual DAG editor, dependency resolution, and fault-tolerant execution across worker nodes.</p>
+          <div class="card-tags">
+            <span class="tag">Go</span>
+            <span class="tag">gRPC</span>
+            <span class="tag">React</span>
+            <span class="tag">Kafka</span>
+          </div>
+        </article> -->
+
+        <!-- Project 6 
+        <article class="project-card fade-in">
+          <div class="card-glow-border"></div>
+          <div class="card-header">
+            <span class="card-index">006</span>
+            <div class="card-links">
+              <a href="#" class="card-link" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.087.636-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              </a>
+              <a href="#" class="card-link" title="Live Demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="card-title">PulseBoard</h3>
+          <p class="card-desc">Personal finance dashboard with ML-powered spending predictions, automated categorization, and interactive data visualization.</p>
+          <div class="card-tags">
+            <span class="tag">Vue.js</span>
+            <span class="tag">Python</span>
+            <span class="tag">D3.js</span>
+            <span class="tag">SQLite</span>
+          </div>
+        </article> -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       EXPERIENCE TIMELINE
+  ══════════════════════════════════════ -->
+  <section id="experience" class="section">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">
+        <span class="title-accent">03.</span> The Journey
+      </h2>
+      <div class="timeline">
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2024 — Present</span>
+            <h3 class="timeline-role">Software Developer Intern</h3>
+            <p class="timeline-company">TechCorp Solutions, Bengaluru</p>
+            <p class="timeline-desc">Built and deployed microservices handling 50k+ daily requests. Integrated ML models into production pipelines, reducing processing time by 40%.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2023</span>
+            <h3 class="timeline-role">ML Research Contributor</h3>
+            <p class="timeline-company">Open Source / Personal</p>
+            <p class="timeline-desc">Contributed to open-source NLP libraries. Implemented novel attention mechanisms and published findings to the community.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2022</span>
+            <h3 class="timeline-role">Full-Stack Developer</h3>
+            <p class="timeline-company">Freelance</p>
+            <p class="timeline-desc">Designed and shipped 6 client projects — ranging from e-commerce platforms to data dashboards. Managed everything from design to deployment.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2021</span>
+            <h3 class="timeline-role">B.Tech — Computer Science</h3>
+            <p class="timeline-company">XYZ University, India</p>
+            <p class="timeline-desc">Graduated with distinction. Specialization in AI/ML. Built the final year project — a real-time sign language translator.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ACHIEVEMENTS
+  ══════════════════════════════════════ -->
+  <section id="achievements" class="section">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">
+        <span class="title-accent">04.</span> Feats Earned
+      </h2>
+      <div class="achievements-grid">
+
+        <div class="achievement-card fade-in" data-rarity="legendary">
+          <div class="achievement-icon">⚔</div>
+          <div class="achievement-body">
+            <span class="achievement-rarity">Legendary</span>
+            <h3>Defeated DSA Boss</h3>
+            <p>Solved 500+ LeetCode problems. Conquered graphs, DP, trees and lived to tell the tale.</p>
+          </div>
+          <div class="achievement-shine"></div>
+        </div>
+
+        <div class="achievement-card fade-in" data-rarity="epic">
+          <div class="achievement-icon">🔥</div>
+          <div class="achievement-body">
+            <span class="achievement-rarity">Epic</span>
+            <h3>Survived ML Training Hell</h3>
+            <p>Trained models for 72 hours straight. Debugged NaN losses at 3 AM. Still sane.</p>
+          </div>
+          <div class="achievement-shine"></div>
+        </div>
+
+        <div class="achievement-card fade-in" data-rarity="rare">
+          <div class="achievement-icon">🏆</div>
+          <div class="achievement-body">
+            <span class="achievement-rarity">Rare</span>
+            <h3>Hackathon Champion</h3>
+            <p>Won 1st place in a 24-hour national hackathon. Built an AI-powered civic tool from scratch.</p>
+          </div>
+          <div class="achievement-shine"></div>
+        </div>
+
+        <div class="achievement-card fade-in" data-rarity="epic">
+          <div class="achievement-icon">🌐</div>
+          <div class="achievement-body">
+            <span class="achievement-rarity">Epic</span>
+            <h3>First Production Deploy</h3>
+            <p>Shipped to prod without breaking anything. A feat witnessed once by few and never forgotten.</p>
+          </div>
+          <div class="achievement-shine"></div>
+        </div>
+
+        <div class="achievement-card fade-in" data-rarity="rare">
+          <div class="achievement-icon">📜</div>
+          <div class="achievement-body">
+            <span class="achievement-rarity">Rare</span>
+            <h3>Open Source Scribe</h3>
+            <p>50+ contributions across public repos. Code lives in the wild, used by strangers worldwide.</p>
+          </div>
+          <div class="achievement-shine"></div>
+        </div>
+
+        <div class="achievement-card fade-in" data-rarity="legendary">
+          <div class="achievement-icon">🌙</div>
+          <div class="achievement-body">
+            <span class="achievement-rarity">Legendary</span>
+            <h3>The Midnight Debugger</h3>
+            <p>Found a race condition at 2 AM that had eluded three senior developers for two weeks.</p>
+          </div>
+          <div class="achievement-shine"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════ -->
+  <section id="contact" class="section">
+    <div class="section-inner contact-inner">
+      <h2 class="section-title fade-in">
+        <span class="title-accent">05.</span> Send a Raven
+      </h2>
+      <p class="contact-sub fade-in">Have a quest in mind? Let's forge something great together.</p>
+
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form-wrap fade-in">
+          <div class="form-group">
+            <label for="c-name">Your Name</label>
+            <input type="text" id="c-name" placeholder="Sir Arthur…" />
+          </div>
+          <div class="form-group">
+            <label for="c-email">Your Email</label>
+            <input type="email" id="c-email" placeholder="raven@realm.com" />
+          </div>
+          <div class="form-group">
+            <label for="c-msg">Your Message</label>
+            <textarea id="c-msg" rows="5" placeholder="I have a quest for you…"></textarea>
+          </div>
+          <button class="btn-primary send-btn" id="send-btn">
+            <span class="btn-glow"></span>
+            Dispatch Raven
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- Social Links -->
+        <div class="contact-socials fade-in">
+          <h3>Find Me In The World</h3>
+          <ul class="social-list">
+            <li>
+              <a href="mailto:hemanth@example.com" class="social-item">
+                <span class="social-icon">✉</span>
+                <span>hemanth@example.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-item">
+                <span class="social-icon">⊕</span>
+                <span>github.com/hemanthr</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-item">
+                <span class="social-icon">◈</span>
+                <span>linkedin.com/in/hemanthr</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-item">
+                <span class="social-icon">◉</span>
+                <span>@hemanthr_dev</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer id="footer">
+    <p class="footer-name">Hemanth R</p>
+    <p class="footer-copy">Designed &amp; Forged by hand · <span id="year"></span></p>
+    <a href="#hero" class="footer-back">↑ Return to Summit</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
